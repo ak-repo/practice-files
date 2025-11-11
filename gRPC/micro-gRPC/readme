@@ -1,0 +1,14 @@
+microservices-grpc/
+├─ go.mod
+├─ pkg/                  # Shared utilities and protobuf files
+│   └─ proto/
+│       ├─ auth.proto
+│       ├─ product.proto
+│       └─ order.proto
+├─ services/
+│   ├─ auth/
+│   │   └─ main.go
+│   ├─ product/
+│   │   └─ main.go
+│   └─ order/
+│       └─ main.go
