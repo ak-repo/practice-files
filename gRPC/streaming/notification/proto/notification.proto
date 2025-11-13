@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package notification;
+option go_package = "./proto/notificationpb";
+
+// Server-side streaming
+service NotificationService {
+  rpc StreamNotifications(NotificationRequest) returns (stream Notification);
+}
+
+message NotificationRequest {
+  string user = 1;
+}
+
+message Notification {
+  string title = 1;
+  string body = 2;
+}
