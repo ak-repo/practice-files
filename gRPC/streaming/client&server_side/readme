@@ -1,0 +1,11 @@
+grpc-streaming-demo/
+├── proto/
+│   ├── upload.proto
+│   └── notification.proto
+├── server/
+│   ├── upload_server.go
+│   └── notification_server.go
+├── client/
+│   ├── upload_client.go
+│   └── notification_client.go
+└── go.mod

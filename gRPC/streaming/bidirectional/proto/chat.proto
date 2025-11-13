@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "./proto/chatpb";
+
+// Message structure
+message ChatMessage {
+  string user = 1;
+  string text = 2;
+}
+
+// Bidirectional streaming service
+service ChatService {
+  rpc ChatStream(stream ChatMessage) returns (stream ChatMessage);
+}
