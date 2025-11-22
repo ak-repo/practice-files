@@ -1,0 +1,21 @@
+services:
+  auth-service:
+    build:
+      context: .
+      dockerfile: ./services/auth-service/Dockerfile
+    ports:
+      - "8001:8001"
+
+  product-service:
+    build:
+      context: .
+      dockerfile: ./services/product-service/Dockerfile
+    ports:
+      - "8002:8002"
+
+  order-service:
+    build:
+      context: .
+      dockerfile: ./services/order-service/Dockerfile
+    ports:
+      - "8003:8003"

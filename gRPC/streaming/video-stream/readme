@@ -1,0 +1,4 @@
+http://localhost:8080/stream/<filename>
+
+
+curl -X POST -F "video=@movie.mp4" http://localhost:8080/upload

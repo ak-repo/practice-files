@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package file;
+option go_package = "./api/filepb";
+
+message UploadMetadata {
+    string filename = 1;
+    int64 filesize = 2;
+    string mimetype = 3;
+    string user_id = 4;
+}
+
+message UploadChunk {
+    bytes content = 1;
+}
+
+message UploadRequest {
+    oneof data {
+        UploadMetadata metadata = 1;
+        UploadChunk chunk = 2;
+    }
+}
+
+message UploadResponse {
+    string file_id = 1;
+    string filename = 2;
+    int64 filesize = 3;
+    string download_url = 4;
+}
+
+message DownloadRequest {
+    string file_id = 1;
+}
+
+message DownloadChunk {
+    bytes content = 1;
+    int64 part = 2;
+}
+
+service FileService {
+    rpc Upload(stream UploadRequest) returns (UploadResponse);
+    rpc Download(DownloadRequest) returns (stream DownloadChunk);
+}
